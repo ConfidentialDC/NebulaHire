@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResumeIQ · Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body class="dash-page">
+
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">ResumeIQ</span>
+    </div>
+    <a href="/" class="nav-link">← Upload</a>
+  </header>
+
+  <main class="dash-main">
+    <div class="dash-top">
+      <div>
+        <h1 class="dash-title">Candidate Dashboard</h1>
+        <p class="dash-sub">Sorted by match score · highest first</p>
+      </div>
+      <div class="stat-cards">
+        <div class="stat-card">
+          <span class="stat-num" id="totalCount">—</span>
+          <span class="stat-label">Total Resumes</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="avgScore">—</span>
+          <span class="stat-label">Avg. Score</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num" id="topScore">—</span>
+          <span class="stat-label">Top Score</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search / filter -->
+    <div class="table-toolbar">
+      <input class="search-input" id="searchInput" type="text" placeholder="Search name, email, or skill…" />
+      <span class="table-count" id="tableCount"></span>
+    </div>
+
+    <!-- Table -->
+    <div class="table-wrap">
+      <table class="cand-table" id="candTable">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Skills</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody id="candBody">
+          <tr class="loading-row">
+            <td colspan="6">
+              <div class="loader-wrap"><span class="loader"></span> Loading candidates…</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="empty-state" id="emptyState" hidden>
+      <p class="empty-icon">📄</p>
+      <p class="empty-text">No candidates yet.</p>
+      <a href="/" class="btn-upload" style="display:inline-block;margin-top:1rem;">Upload a Resume</a>
+    </div>
+  </main>
+
+  <footer class="site-footer"><p>ResumeIQ · Resume Screening Platform</p></footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

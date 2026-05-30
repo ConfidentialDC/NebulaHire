@@ -3,6 +3,10 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Operating system files
+.DS_Store
+Thumbs.db
+
 # C extensions
 *.so
 
@@ -151,6 +155,7 @@ activemq-data/
 .env
 .envrc
 .venv
+.flaskenv
 env/
 venv/
 ENV/

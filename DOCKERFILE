@@ -1,0 +1,13 @@
+FROM python:3.13-slim
+
+WORKDIR /app
+
+COPY ./flask/requirements.txt .
+
+RUN pip install requirements.txt
+
+COPY ./flask .
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]

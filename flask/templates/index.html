@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ResumeIQ · Upload</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body class="home-page">
+
+  <!-- Background grid -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Floating accent blobs -->
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="logo">
+      <span class="logo-icon">⬡</span>
+      <span class="logo-text">ResumeIQ</span>
+    </div>
+    <a href="/dashboard" class="nav-link">Dashboard →</a>
+  </header>
+
+  <main class="home-main">
+    <section class="hero">
+      <p class="hero-eyebrow">AI-Powered Screening</p>
+      <h1 class="hero-title">
+        Find the best<br />
+        <em>candidate</em><br />
+        in seconds.
+      </h1>
+      <p class="hero-sub">
+        Upload PDF resumes. We extract skills, score talent,<br />
+        and rank candidates automatically.
+      </p>
+    </section>
+
+    <!-- Upload card -->
+    <div class="upload-card" id="uploadCard">
+      <div class="upload-zone" id="dropZone">
+        <div class="upload-icon-wrap" id="uploadIconWrap">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <path d="M20 28V12M20 12L13 19M20 12L27 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8 30C5.79 30 4 28.21 4 26C4 24.02 5.49 22.39 7.42 22.07C7.15 21.43 7 20.73 7 20C7 17.24 9.24 15 12 15C12.37 15 12.73 15.04 13.08 15.11C14.05 12.7 16.33 11 19 11C22.31 11 25 13.69 25 17C25 17.34 24.97 17.67 24.92 18H25C27.76 18 30 20.24 30 23C30 25.76 27.76 28 25 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p class="drop-label">Drag &amp; drop PDF here</p>
+        <p class="drop-sub">or</p>
+        <label class="btn-browse" for="fileInput">Choose File</label>
+        <input type="file" id="fileInput" accept=".pdf" hidden />
+        <p class="file-name" id="fileName">No file chosen</p>
+      </div>
+
+      <button class="btn-upload" id="uploadBtn" disabled>
+        <span class="btn-text">Upload &amp; Analyse</span>
+        <span class="btn-spinner" aria-hidden="true"></span>
+      </button>
+
+      <!-- Result panel -->
+      <div class="result-panel" id="resultPanel" hidden>
+        <div class="result-header">
+          <span class="result-badge success">✓ Processed</span>
+          <button class="result-close" id="resultClose" aria-label="Close">✕</button>
+        </div>
+        <div class="result-grid">
+          <div class="result-item"><span class="ri-label">Name</span><span class="ri-val" id="rName">—</span></div>
+          <div class="result-item"><span class="ri-label">Email</span><span class="ri-val" id="rEmail">—</span></div>
+          <div class="result-item"><span class="ri-label">Phone</span><span class="ri-val" id="rPhone">—</span></div>
+          <div class="result-item full"><span class="ri-label">Score</span>
+            <div class="score-bar-wrap">
+              <div class="score-bar" id="scoreBar"></div>
+              <span class="score-num" id="rScore">0</span>
+            </div>
+          </div>
+          <div class="result-item full">
+            <span class="ri-label">Skills detected</span>
+            <div class="skill-tags" id="rSkills"></div>
+          </div>
+        </div>
+        <a href="/dashboard" class="btn-dash">View Full Dashboard →</a>
+      </div>
+
+      <!-- Error panel -->
+      <div class="error-panel" id="errorPanel" hidden>
+        <span class="result-badge error">⚠ Error</span>
+        <p id="errorMsg"></p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>ResumeIQ · Resume Screening Platform</p>
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
