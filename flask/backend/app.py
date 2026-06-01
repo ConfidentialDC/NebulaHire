@@ -44,6 +44,12 @@ SKILL_SET = [
 ]
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
+
+@app.route('/health')
+def health():
+    return jsonify({"status": "healthy"}), 200
+
+
 def allowed_file(filename: str) -> bool:
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
