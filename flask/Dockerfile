@@ -2,12 +2,12 @@ FROM python:3.13-slim
 
 WORKDIR /app
 
-COPY ./flask/requirements.txt .
+COPY backend/requirements.txt .
 
 RUN pip install -r requirements.txt
 
-COPY ./flask .
+COPY . .
 
 EXPOSE 5000
 
-CMD ["python", "app.py"]
+CMD ["python", "backend/app.py"]
