@@ -21,7 +21,8 @@ ALLOWED_EXTENSIONS = {'pdf'}
 
 # ── MongoDB ────────────────────────────────────────────────────────────────────
 try:
-    client = MongoClient('mongodb://localhost:27017/', serverSelectionTimeoutMS=3000)
+    MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
+    client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=3000)
     client.server_info()
     db         = client['resume_screening']
     candidates = db['candidates']
